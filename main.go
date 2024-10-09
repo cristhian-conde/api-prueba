@@ -14,8 +14,14 @@ func main() {
 		context.JSON(http.StatusOK, "welcome home")
 	})
 
+	router.GET("/ping", func(context *gin.Context) {
+		message := "pong"
+		context.JSON(http.StatusOK, message)
+
+	})
+
 	server := &http.Server{
-		Addr: ":8888",
+		Addr: ":8080",
 		/*	Handler:        routes,*/
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
